@@ -1,3 +1,7 @@
+<img width="1512" height="982" alt="Screenshot 2026-07-25 at 4 31 24 PM" src="https://github.com/user-attachments/assets/0ad26367-e7dd-4133-a97c-a4be18e7826c" />
+
+
+
 #  Z-Escrow: Privacy-First Digital Escrow
 
 Welcome to **Z-Escrow**, built for the Zcash Mini Build Challenge! 
@@ -15,9 +19,9 @@ Z-Escrow is a decentralized-style escrow application that leverages the unparall
 
 ---
 
-## 🛠️ How to Test (For Hackathon Judges)
+## 🛠️ How to Test
 
-To prove this is a **100% real integration**, this project does not use mock API responses. It connects to a real Zcash node running locally in `regtest` mode. 
+To prove this is a **100% real integration**. It connects to a real Zcash node running locally in `regtest` mode. 
 
 Please follow these simple steps to test the app:
 
