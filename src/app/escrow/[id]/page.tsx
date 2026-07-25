@@ -349,7 +349,7 @@ export default function EscrowStatusPage({ params }: { params: Promise<{ id: str
             </div>
             <div className="text-center mb-8">
               <h3 className="text-xl font-bold mb-2 text-red-400">Transaction Disputed</h3>
-              <p className="text-sm text-white/60">The funds have been returned to the buyer.</p>
+              <p className="text-sm text-white/60">The funds are currently frozen pending manual review.</p>
             </div>
             <div className="flex flex-col items-center gap-4">
               <button 

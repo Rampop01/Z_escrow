@@ -19,7 +19,7 @@ export default function JudgePage({ params }: { params: Promise<{ id: string }> 
         const res = await fetch(`/api/escrow/status?id=${resolvedParams.id}`);
         if (res.ok) {
           const data = await res.json();
-          setEscrow(data);
+          setEscrow(data.escrow);
         }
       } catch (err) {
         console.error(err);
