@@ -191,9 +191,16 @@ export default function EscrowStatusPage({ params }: { params: Promise<{ id: str
                 </div>
                 <div className="text-right">
                   <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Address</p>
-                  <code className="text-xs text-white/50 bg-black/50 px-2 py-1 rounded">
-                    {escrow.sellerAddress.slice(0,8)}...
-                  </code>
+                  <button 
+                    onClick={() => {
+                      navigator.clipboard.writeText(escrow.sellerAddress);
+                      alert('Seller address copied to clipboard!');
+                    }}
+                    className="flex items-center gap-1 text-xs text-white/50 bg-black/50 px-2 py-1 rounded hover:bg-black hover:text-white transition-colors"
+                  >
+                    <code>{escrow.sellerAddress.slice(0,8)}...</code>
+                    <Copy className="w-3 h-3" />
+                  </button>
                 </div>
               </div>
             </div>
@@ -376,7 +383,19 @@ export default function EscrowStatusPage({ params }: { params: Promise<{ id: str
             </div>
             <div className="text-center mb-8">
               <h3 className="text-xl font-bold mb-2">Transaction Complete</h3>
-              <p className="text-sm text-white/60">The funds have been released to the seller's Zcash address.</p>
+              {isSeller ? (
+                <div className="bg-zcash/10 border border-zcash/20 rounded-lg p-4 mt-4 text-left">
+                  <p className="text-sm text-white font-medium mb-1">Funds Received!</p>
+                  <p className="text-xs text-white/70 leading-relaxed">
+                    You received <strong className="text-zcash">{Number(escrow.amount) - 0.0001} ZEC</strong> in your shielded wallet. 
+                    A standard Zcash network miner fee of 0.0001 ZEC was deducted from the escrow total to process this transaction.
+                  </p>
+                </div>
+              ) : (
+                <p className="text-sm text-white/60">
+                  You have successfully approved the delivery and released the funds to the seller. Thank you for using Z-Escrow!
+                </p>
+              )}
             </div>
             
             <button 

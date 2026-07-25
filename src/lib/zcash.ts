@@ -79,7 +79,8 @@ export const zcash = {
       fromAddress, 
       [{ address: toAddress, amount: sendAmount }],
       1, // minconf
-      fee // explicit fee that precisely matches ZIP 317 for this transaction shape
+      fee, // explicit fee that precisely matches ZIP 317 for this transaction shape
+      "AllowRevealedAmounts" // privacyPolicy
     ]);
   }
 };

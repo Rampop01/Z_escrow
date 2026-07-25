@@ -1,4 +1,4 @@
-# 🛡️ Z-Escrow: Privacy-First Digital Escrow
+#  Z-Escrow: Privacy-First Digital Escrow
 
 Welcome to **Z-Escrow**, built for the Zcash Mini Build Challenge! 
 
@@ -6,12 +6,12 @@ Z-Escrow is a decentralized-style escrow application that leverages the unparall
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔐 **100% Shielded**: All escrow transactions are conducted using Sapling via Unified Addresses.
-- ⚡ **Instant Mempool Detection**: The UI polls for zero-confirmation transactions, updating instantly when funds hit the mempool.
-- 👨‍⚖️ **Built-in Arbitration**: Features a robust "Dispute" mechanism that freezes funds and allows an Admin/Judge to intervene via a dedicated Judge Dashboard.
-- 💼 **Simulated Wallets**: Built-in "Buyer" and "Seller" wallets that interact directly with the local Zcash daemon to mine regtest ZEC and sign transactions natively.
+-  **100% Shielded**: All escrow transactions are conducted using Sapling via Unified Addresses.
+-  **Instant Mempool Detection**: The UI polls for zero-confirmation transactions, updating instantly when funds hit the mempool.
+-  **Built-in Arbitration**: Features a robust "Dispute" mechanism that freezes funds and allows an Admin/Judge to intervene via a dedicated Judge Dashboard.
+-  **Simulated Wallets**: Built-in "Buyer" and "Seller" wallets that interact directly with the local Zcash daemon to mine regtest ZEC and sign transactions natively.
 
 ---
 
@@ -48,7 +48,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🧠 Zcash RPCs Used
+##  Zcash RPCs Used
 - `z_getnewaccount` & `z_getaddressforaccount`: Generates unique Unified Addresses (Sapling) for every new escrow and wallet.
 - `z_listunspent`: Scans the wallet for available shielded UTXOs to fund transactions.
 - `z_sendmany`: Safely releases funds, auto-calculating ZIP-317 fees, and routes shielded funds between parties.
