@@ -10,14 +10,14 @@ Z-Escrow is a decentralized-style escrow application that leverages the unparall
 
 ---
 
-## 📖 User Flow & Pain Point Story
+## User Flow & Pain Point Story
 
 **The Pain Point:**
 Alice, a freelance graphic designer in Nigeria, lands a gig for a client (Bob) in Europe. Alice wants to be paid in crypto to avoid massive fiat conversion fees, but she values her privacy and doesn't want her entire transaction history and wallet balance visible on a public ledger like Ethereum. Bob is happy to pay in crypto, but he wants to ensure Alice actually delivers the designs before he releases the funds. Additionally, Alice wants to avoid getting scammed or dealing with unfair chargebacks. Traditional web2 escrow services take a massive 5-10% cut, and existing web3 smart contracts are completely public, leaking business intelligence.
 
 **The Solution Flow:**
-1. **Creation:** Bob visits Z-Escrow and creates a new escrow agreement, stipulating the payment amount in ZEC.
-2. **Deposit (Shielded):** Bob deposits the ZEC into the generated Escrow Unified Address. Because this uses Zcash's Sapling protocol, the amount and sender are completely shielded. The UI instantly detects the transaction in the mempool.
+1. **Creation:** Alice visits Z-Escrow, sets the price for her services in ZEC, and generates a secure Escrow link which she sends to Bob.
+2. **Deposit (Shielded):** Bob opens the link and deposits the ZEC into the generated Escrow Unified Address. Because this uses Zcash's Sapling protocol, the amount and sender are completely shielded. The UI instantly detects the transaction in the mempool.
 3. **Work & Delivery:** Alice sees the funds are safely locked in escrow and begins her design work.
 4. **Resolution:** 
    - *Happy Path:* Alice delivers the work. Bob clicks "Approve & Release". The Z-Escrow backend constructs a `z_sendmany` transaction to sweep the funds to Alice's wallet, handling the strict ZIP-317 fee automatically.
@@ -33,7 +33,7 @@ Alice, a freelance graphic designer in Nigeria, lands a gig for a client (Bob) i
 
 ---
 
-## 🌐 Live Demo & Seamless Testing
+## Live Demo & Seamless Testing
 You can view and interact with the live demo here: [https://placidly-flagpole-quarterly.ngrok-free.dev](https://placidly-flagpole-quarterly.ngrok-free.dev)
 
 **Why a Live Link for a Local Node?**
@@ -43,7 +43,7 @@ When you click the link above, your browser connects to our Next.js frontend, wh
 
 ---
 
-## 🛠️ How to Test (For Hackathon Judges)
+## How to Test (For Hackathon Judges)
 
 To prove this is a **100% real integration**. It connects to a real Zcash node running locally in `regtest` mode. 
 
@@ -76,7 +76,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🏗️ Design Rationale & Wallet Management
+## Design Rationale & Wallet Management
 
 Currently, **Z-Escrow automatically generates a Zcash Unified Address** for both the Escrow deposit and the Seller using the local Zcash daemon.
 
@@ -93,6 +93,7 @@ This project was built for the **Zcash Mini Build Challenge**, and the primary g
 - Complete demonstration of Zcash RPC capabilities (address generation, unspent scanning, and sending) entirely self-contained.
 
 ---
+
 
 ##  Zcash RPCs Used
 - `z_getnewaccount` & `z_getaddressforaccount`: Generates unique Unified Addresses (Sapling) for every new escrow and wallet.
