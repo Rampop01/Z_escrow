@@ -51,7 +51,7 @@ npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Step 3: Test the Escrow Flow (The Magic)
+### Step 3: Test the Escrow Flow
 1. On the web app, click **Start an Escrow** and fill out the form.
 2. The app will securely generate a **real Shielded Unified Address** for both the Escrow Deposit and the Seller.
 3. On the Escrow screen, click **"Mine Free ZEC"** on the Buyer's Wallet card to generate testnet funds.
