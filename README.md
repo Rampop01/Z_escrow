@@ -10,6 +10,20 @@ Z-Escrow is a decentralized-style escrow application that leverages the unparall
 
 ---
 
+## 📖 User Flow & Pain Point Story
+
+**The Pain Point:**
+Alice, a freelance graphic designer in Nigeria, lands a gig for a client (Bob) in Europe. Alice wants to be paid in crypto to avoid massive fiat conversion fees, but she values her privacy and doesn't want her entire transaction history and wallet balance visible on a public ledger like Ethereum. Bob is happy to pay in crypto, but he wants to ensure Alice actually delivers the designs before he releases the funds. Additionally, Alice wants to avoid getting scammed or dealing with unfair chargebacks. Traditional web2 escrow services take a massive 5-10% cut, and existing web3 smart contracts are completely public, leaking business intelligence.
+
+**The Solution Flow:**
+1. **Creation:** Bob visits Z-Escrow and creates a new escrow agreement, stipulating the payment amount in ZEC.
+2. **Deposit (Shielded):** Bob deposits the ZEC into the generated Escrow Unified Address. Because this uses Zcash's Sapling protocol, the amount and sender are completely shielded. The UI instantly detects the transaction in the mempool.
+3. **Work & Delivery:** Alice sees the funds are safely locked in escrow and begins her design work.
+4. **Resolution:** 
+   - *Happy Path:* Alice delivers the work. Bob clicks "Approve & Release". The Z-Escrow backend constructs a `z_sendmany` transaction to sweep the funds to Alice's wallet, handling the strict ZIP-317 fee automatically.
+   - *Dispute Path:* If Bob is unhappy with the work, he clicks "Dispute". A neutral 3rd-party Judge (Admin) reviews the evidence off-chain, and uses the Judge Dashboard to route the shielded funds to either Alice or refund Bob.
+---
+
 ##  Features
 
 -  **100% Shielded**: All escrow transactions are conducted using Sapling via Unified Addresses.
@@ -77,21 +91,6 @@ This project was built for the **Zcash Mini Build Challenge**, and the primary g
 **Advantages of Current (Regtest) Design:**
 - Immediate, frictionless testing for hackathon judges.
 - Complete demonstration of Zcash RPC capabilities (address generation, unspent scanning, and sending) entirely self-contained.
-
----
-
-## 📖 User Flow & Pain Point Story
-
-**The Pain Point:**
-Alice, a freelance graphic designer in Nigeria, lands a gig for a client (Bob) in Europe. Alice wants to be paid in crypto to avoid massive fiat conversion fees, but she values her privacy and doesn't want her entire transaction history and wallet balance visible on a public ledger like Ethereum. Bob is happy to pay in crypto, but he wants to ensure Alice actually delivers the designs before he releases the funds. Additionally, Alice wants to avoid getting scammed or dealing with unfair chargebacks. Traditional web2 escrow services take a massive 5-10% cut, and existing web3 smart contracts are completely public, leaking business intelligence.
-
-**The Solution Flow:**
-1. **Creation:** Bob visits Z-Escrow and creates a new escrow agreement, stipulating the payment amount in ZEC.
-2. **Deposit (Shielded):** Bob deposits the ZEC into the generated Escrow Unified Address. Because this uses Zcash's Sapling protocol, the amount and sender are completely shielded. The UI instantly detects the transaction in the mempool.
-3. **Work & Delivery:** Alice sees the funds are safely locked in escrow and begins her design work.
-4. **Resolution:** 
-   - *Happy Path:* Alice delivers the work. Bob clicks "Approve & Release". The Z-Escrow backend constructs a `z_sendmany` transaction to sweep the funds to Alice's wallet, handling the strict ZIP-317 fee automatically.
-   - *Dispute Path:* If Bob is unhappy with the work, he clicks "Dispute". A neutral 3rd-party Judge (Admin) reviews the evidence off-chain, and uses the Judge Dashboard to route the shielded funds to either Alice or refund Bob.
 
 ---
 
